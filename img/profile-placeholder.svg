@@ -1,0 +1,22 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="400" height="400" fill="#f0f0f0"/>
+    
+    <!-- Circle for face -->
+    <circle cx="200" cy="150" r="100" fill="#d1c4e9"/>
+    
+    <!-- Body shape -->
+    <path d="M 100 280 Q 200 230 300 280 L 300 400 L 100 400 Z" fill="#6e57e0"/>
+    
+    <!-- Eyes -->
+    <circle cx="160" cy="140" r="15" fill="#fff"/>
+    <circle cx="240" cy="140" r="15" fill="#fff"/>
+    <circle cx="160" cy="140" r="7" fill="#333"/>
+    <circle cx="240" cy="140" r="7" fill="#333"/>
+    
+    <!-- Smile -->
+    <path d="M 150 180 Q 200 220 250 180" fill="none" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+    
+    <!-- Text -->
+    <text x="200" y="350" font-family="Arial" font-size="20" text-anchor="middle" fill="#fff">Profile Picture</text>
+</svg> 

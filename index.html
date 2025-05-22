@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farzana Akter Faria | Chemistry Educator & Mentor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/emerald-gold-theme.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="css/svg-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <style>
+        /* Dropdown Menu Styling to override any other styles */
+        .nav-dropdown {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            color: var(--nav-text);
+            transition: color 0.3s ease;
+            height: 100%;
+            padding: 0 10px;
+            text-decoration: none;
+        }
+
+        .nav-dropdown-toggle i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            margin-left: 5px;
+        }
+
+        .nav-dropdown.active .nav-dropdown-toggle {
+            color: var(--primary-color);
+        }
+
+        .nav-dropdown.active .nav-dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            min-width: 200px;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            padding: 10px 0;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(var(--primary-rgb), 0.1);
+            list-style: none;
+            margin: 0;
+        }
+
+        .nav-dropdown.active .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-dropdown-menu li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-dropdown-item {
+            display: block;
+            padding: 8px 20px;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            text-align: left;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .nav-dropdown-item:hover {
+            background-color: rgba(var(--primary-rgb), 0.08);
+            color: var(--primary-color);
+            padding-left: 25px;
+        }
+
+        .dark-mode .nav-dropdown-menu {
+            background-color: var(--bg-alternate);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-mode .nav-dropdown-item:hover {
+            background-color: rgba(var(--primary-rgb), 0.15);
+        }
+        
+        @media (max-width: 992px) {
+            .nav-dropdown {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            
+            .nav-dropdown-toggle {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 20px;
+                text-align: center;
+            }
+            
+            .nav-dropdown-menu {
+                position: static;
+                width: 100%;
+                transform: none !important;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 1;
+                visibility: hidden;
+                border: none;
+                background-color: rgba(var(--primary-rgb), 0.05);
+                margin: 0 auto;
+                width: 90%;
+                border-radius: 8px;
+                transition: max-height 0.3s ease, visibility 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+            }
+            
+            .nav-dropdown.active .nav-dropdown-menu {
+                max-height: 300px;
+                visibility: visible;
+                padding: 10px 0;
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .nav-dropdown-item {
+                padding: 10px 20px;
+                text-align: center;
+            }
+            
+            .nav-dropdown-item:hover {
+                padding-left: 20px;
+            }
+        }
+        
+        /* Theme selector styling */
+        .theme-selector {
+            position: relative;
+            margin-right: 10px;
+        }
+        
+        .theme-selector-btn {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+        }
+        
+        .theme-selector-btn:hover {
+            background-color: rgba(var(--primary-rgb), 0.1);
+        }
+        
+        .theme-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 180px;
+            background-color: var(--bg-light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin-top: 10px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .theme-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .theme-option {
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 5px;
+        }
+        
+        .theme-option:hover {
+            background-color: rgba(var(--primary-rgb), 0.08);
+        }
+        
+        .color-preview {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .default-theme {
+            background: linear-gradient(135deg, #6c63ff 0%, #ff6584 100%);
+        }
+        
+        .dusty-rose-theme {
+            background: linear-gradient(135deg, #D4A5A5 0%, #9BAF88 100%);
+        }
+        
+        .teal-theme {
+            background: linear-gradient(135deg, #3B8EA5 0%, #EE7674 100%);
+        }
+        
+        .slate-theme {
+            background: linear-gradient(135deg, #445C6D 0%, #FFBF3C 100%);
+        }
+        
+        .purple-theme {
+            background: linear-gradient(135deg, #8A4FFF 0%, #FF7EB3 100%);
+        }
+        
+        .emerald-theme {
+            background: linear-gradient(135deg, #0A8754 0%, #D4AF37 100%);
+        }
+        
+        .burgundy-theme {
+            background: linear-gradient(135deg, #8A1538 0%, #D4AF37 100%);
+        }
+        
+        .midnight-theme {
+            background: linear-gradient(135deg, #1D3461 0%, #FF7D00 100%);
+        }
+        
+        .turquoise-theme {
+            background: linear-gradient(135deg, #00B5B0 0%, #FF6B6B 100%);
+        }
+        
+        .theme-name {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        @media (max-width: 768px) {
+            .theme-dropdown {
+                width: 150px;
+                right: -50px;
+            }
+            
+            .theme-option {
+                padding: 6px 8px;
+            }
+        }
+        
+        /* Form status message styles */
+        .form-status {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .sending-message {
+            background-color: rgba(var(--primary-rgb), 0.1);
+            color: var(--primary-color);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .success-message {
+            background-color: rgba(75, 181, 67, 0.1);
+            color: #4BB543;
+            border-left: 4px solid #4BB543;
+        }
+        
+        .error-message {
+            background-color: rgba(255, 76, 76, 0.1);
+            color: #FF4C4C;
+            border-left: 4px solid #FF4C4C;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#hero"><img src="img/logo.svg" alt="Faria Logo"></a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="nav-link" data-en="Home" data-bn="হোম">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-en="About" data-bn="সম্পর্কে">About</a></li>
+                    <li><a href="#education" class="nav-link" data-en="Education" data-bn="শিক্ষা">Education</a></li>
+                    <li><a href="#experience" class="nav-link" data-en="Experience" data-bn="অভিজ্ঞতা">Experience</a></li>
+                    <li><a href="#skills" class="nav-link" data-en="Skills" data-bn="দক্ষতা">Skills</a></li>
+                    <li><a href="#contact" class="nav-link" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="language-toggle">
+                    <div class="toggle-container">
+                        <button id="en-toggle" class="toggle-option active">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="English" width="20" height="15">
+                            <span>EN</span>
+                        </button>
+                        <button id="bn-toggle" class="toggle-option">
+                            <img src="https://flagcdn.com/w40/bd.png" alt="Bangla" width="20" height="15">
+                            <span>BD</span>
+                        </button>
+                        <div class="slider"></div>
+                    </div>
+                </div>
+                <div class="theme-selector">
+                    <button id="theme-selector-btn" class="theme-selector-btn">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div class="theme-dropdown">
+                        <div class="theme-option" data-theme="default" style="display: none;">
+                            <span class="color-preview default-theme"></span>
+                            <span class="theme-name">Soft Indigo</span>
+                        </div>
+                        <div class="theme-option" data-theme="dusty-rose-sage" style="display: none;">
+                            <span class="color-preview dusty-rose-theme"></span>
+                            <span class="theme-name">Dusty Rose</span>
+                        </div>
+                        <div class="theme-option" data-theme="teal" style="display: none;">
+                            <span class="color-preview teal-theme"></span>
+                            <span class="theme-name">Teal</span>
+                        </div>
+                        <div class="theme-option" data-theme="slate-amber" style="display: none;">
+                            <span class="color-preview slate-theme"></span>
+                            <span class="theme-name">Slate Amber</span>
+                        </div>
+                        <div class="theme-option active" data-theme="emerald-gold">
+                            <span class="color-preview emerald-theme"></span>
+                            <span class="theme-name">Emerald Gold</span>
+                        </div>
+                        <div class="theme-option" data-theme="burgundy-gold">
+                            <span class="color-preview burgundy-theme"></span>
+                            <span class="theme-name">Burgundy Gold</span>
+                        </div>
+                        <div class="theme-option" data-theme="purple-accent">
+                            <span class="color-preview purple-theme"></span>
+                            <span class="theme-name">Purple Accent</span>
+                        </div>
+                        <div class="theme-option" data-theme="midnight-orange">
+                            <span class="color-preview midnight-theme"></span>
+                            <span class="theme-name">Midnight Orange</span>
+                        </div>
+                        <div class="theme-option" data-theme="turquoise-coral">
+                            <span class="color-preview turquoise-theme"></span>
+                            <span class="theme-name">Vivid Turquoise</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="theme-mode-toggle">
+                    <button id="theme-mode-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                </button>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-pattern"></div>
+        <div class="container">
+            <div class="hero-wrapper">
+                <div class="hero-image-wrapper">
+                    <div class="image-shape">
+                        <div class="teacher-animation">
+                            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" class="teacher-svg">
+                                                                                                <!-- Background elements -->                                <circle cx="250" cy="250" r="200" fill="rgba(212, 165, 165, 0.05)" />                                <circle cx="250" cy="250" r="150" fill="rgba(155, 175, 136, 0.05)" />
+                                
+                                <!-- Animated atoms and molecules -->
+                                                                <g class="atom atom-1">                                    <circle cx="180" cy="170" r="15" fill="#D4A5A5" />                                    <ellipse cx="180" cy="170" rx="40" ry="10" fill="none" stroke="#D4A5A5" stroke-width="2" />                                    <ellipse cx="180" cy="170" rx="40" ry="10" fill="none" stroke="#D4A5A5" stroke-width="2" transform="rotate(60,180,170)" />                                    <ellipse cx="180" cy="170" rx="40" ry="10" fill="none" stroke="#D4A5A5" stroke-width="2" transform="rotate(-60,180,170)" />                                </g>
+                                
+                                                                <g class="atom atom-2">                                    <circle cx="330" cy="210" r="12" fill="#9BAF88" />                                    <ellipse cx="330" cy="210" rx="30" ry="8" fill="none" stroke="#9BAF88" stroke-width="2" />                                    <ellipse cx="330" cy="210" rx="30" ry="8" fill="none" stroke="#9BAF88" stroke-width="2" transform="rotate(60,330,210)" />                                </g>
+                                
+                                                                                                <!-- Beaker -->                                <g class="beaker">                                    <path d="M270 380 L290 280 L350 280 L370 380 Z" fill="rgba(255, 255, 255, 0.7)" stroke="#D4A5A5" stroke-width="2" />                                    <path class="liquid" d="M290 330 L350 330 L360 380 L280 380 Z" fill="#D4A5A5" opacity="0.5" />                                    <path class="bubble bubble-1" d="M300 350 C300 347 304 347 304 350 C304 353 300 353 300 350 Z" fill="white" />                                    <path class="bubble bubble-2" d="M320 340 C320 337 324 337 324 340 C324 343 320 343 320 340 Z" fill="white" />                                    <path class="bubble bubble-3" d="M340 360 C340 357 344 357 344 360 C344 363 340 363 340 360 Z" fill="white" />                                </g>
+
+                                <!-- Abstract Science Elements -->
+                                <g class="abstract-elements">
+                                                                                                            <!-- DNA Helix -->                                    <path class="dna" d="M130 150 C180 190, 190 210, 130 250 C180 290, 190 310, 130 350" fill="none" stroke="#D4A5A5" stroke-width="2" />                                    <path class="dna" d="M170 150 C120 190, 110 210, 170 250 C120 290, 110 310, 170 350" fill="none" stroke="#9BAF88" stroke-width="2" />
+                                    
+                                    <!-- DNA Rungs -->
+                                    <line x1="130" y1="170" x2="170" y2="170" stroke="#333" stroke-width="1.5" />
+                                    <line x1="130" y1="200" x2="170" y2="200" stroke="#333" stroke-width="1.5" />
+                                    <line x1="130" y1="230" x2="170" y2="230" stroke="#333" stroke-width="1.5" />
+                                    <line x1="130" y1="260" x2="170" y2="260" stroke="#333" stroke-width="1.5" />
+                                    <line x1="130" y1="290" x2="170" y2="290" stroke="#333" stroke-width="1.5" />
+                                    <line x1="130" y1="320" x2="170" y2="320" stroke="#333" stroke-width="1.5" />
+                                    
+                                                                        <!-- Molecule Structure -->                                    <g class="molecule">                                        <circle cx="250" cy="180" r="10" fill="#D4A5A5" />                                        <circle cx="220" cy="220" r="8" fill="#9BAF88" />                                        <circle cx="280" cy="220" r="8" fill="#9BAF88" />                                        <circle cx="250" cy="260" r="8" fill="#D4A5A5" />
+                                        <line x1="250" y1="180" x2="220" y2="220" stroke="#333" stroke-width="1.5" />
+                                        <line x1="250" y1="180" x2="280" y2="220" stroke="#333" stroke-width="1.5" />
+                                        <line x1="220" y1="220" x2="250" y2="260" stroke="#333" stroke-width="1.5" />
+                                        <line x1="280" y1="220" x2="250" y2="260" stroke="#333" stroke-width="1.5" />
+                                    </g>
+                                    
+                                                                        <!-- Flask -->                                    <g class="flask">                                        <path d="M380 150 L360 250 L400 250 Z" fill="none" stroke="#D4A5A5" stroke-width="2" />                                        <circle cx="380" cy="150" r="15" fill="rgba(155, 175, 136, 0.2)" stroke="#9BAF88" stroke-width="1" />
+                                    </g>
+                                    
+                                                                        <!-- Abstract Waves -->                                    <path class="wave" d="M200 380 C220 350, 240 410, 260 380 C280 350, 300 410, 320 380" fill="none" stroke="#E9E0D1" stroke-width="2" />                                    <path class="wave" d="M210 410 C230 380, 250 440, 270 410 C290 380, 310 440, 330 410" fill="none" stroke="#9BAF88" stroke-width="2" />
+                                </g>
+                                
+                                <!-- Floating formulas -->
+                                <text x="150" y="120" class="formula formula-1" font-family="monospace" font-size="14" fill="#333">H₂O</text>
+                                <text x="320" y="150" class="formula formula-2" font-family="monospace" font-size="14" fill="#333">CO₂</text>
+                                <text x="200" y="280" class="formula formula-3" font-family="monospace" font-size="12" fill="#333">E=mc²</text>
+                                <text x="320" y="250" class="formula formula-4" font-family="monospace" font-size="12" fill="#333">NaOH</text>
+                                <text x="290" y="340" class="formula formula-5" font-family="monospace" font-size="14" fill="#333">C₆H₁₂O₆</text>
+                                
+                                                                <!-- Circles for visual interest -->                                <circle cx="400" cy="300" r="5" fill="#D4A5A5" class="pulse-circle" />                                <circle cx="150" cy="350" r="4" fill="#9BAF88" class="pulse-circle" />                                <circle cx="380" cy="200" r="3" fill="#D4A5A5" class="pulse-circle" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="shape-overlay"></div>
+                    <div class="science-icons">
+                        <div class="science-icon icon-1"><i class="fas fa-atom"></i></div>
+                        <div class="science-icon icon-2"><i class="fas fa-flask"></i></div>
+                        <div class="science-icon icon-3"><i class="fas fa-microscope"></i></div>
+                        <div class="science-icon icon-4"><i class="fas fa-dna"></i></div>
+                    </div>
+                    <div class="badge-wrapper">
+                        <div class="experience-badge">
+                            <span class="exp-years">4+</span>
+                            <span class="exp-text" data-en="Years Experience" data-bn="বছরের অভিজ্ঞতা">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            <div class="hero-content">
+                    <div class="tag-badges">
+                        <span class="tag-badge" data-en="Chemistry" data-bn="রসায়ন">Chemistry</span>
+                        <span class="tag-badge" data-en="Education" data-bn="শিক্ষা">Education</span>
+                        <span class="tag-badge" data-en="Mentoring" data-bn="মেন্টরিং">Mentoring</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="greeting" data-en="Hello, I'm" data-bn="হ্যালো, আমি">Hello, I'm</span>
+                        <span class="name" data-en="Farzana Akter Faria" data-bn="ফারজানা আক্তার ফারিয়া">Farzana Akter <span class="highlight">Faria</span></span>
+                    </h1>
+                    <div class="hero-subtitle-wrapper">
+                        <h2 class="hero-subtitle" data-en="Dedicated Science Educator & Academic Mentor" data-bn="নিবেদিত বিজ্ঞান শিক্ষিকা ও একাডেমিক মেন্টর">Dedicated Science Educator & Academic Mentor</h2>
+                    </div>
+                    <p class="hero-description" data-en="Transforming complex scientific concepts into engaging, accessible learning experiences. I help students build confidence and excel in chemistry through innovative teaching methods." data-bn="জটিল বৈজ্ঞানিক ধারণাগুলিকে সহজ ও আকর্ষণীয় শেখার অভিজ্ঞতায় রূপান্তর করি। আমি শিক্ষার্থীদের আত্মবিশ্বাস গড়ে তুলতে এবং রসায়নে সফল হতে সহায়তা করি উদ্ভাবনী পাঠদানের মাধ্যমে।">Transforming complex scientific concepts into engaging, accessible learning experiences. I help students build confidence and excel in chemistry through innovative teaching methods.</p>
+                    <div class="hero-stats">
+                                                    <div class="stat-item">
+                                <div class="stat-value">60<span class="stat-plus">+</span></div>
+                                <div class="stat-label" data-en="Students Mentored" data-bn="পরামর্শপ্রাপ্ত শিক্ষার্থী">Students Mentored</div>
+                    </div>
+                        <div class="stat-item">
+                            <div class="stat-value">99<span class="stat-percent">%</span></div>
+                            <div class="stat-label" data-en="Success Rate" data-bn="সাফল্যের হার">Success Rate</div>
+                </div>
+                        </div>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn primary-btn" data-en="Get in Touch" data-bn="যোগাযোগ করুন">Get in Touch</a>
+                        <a href="#about" class="btn outline-btn" data-en="About Me" data-bn="আমার সম্পর্কে">About Me</a>
+                    </div>
+                </div>
+                <a href="#subjects" class="hero-scroll">
+                    <span data-en="Scroll Down" data-bn="নিচে স্ক্রল করুন">Scroll Down</span>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects I Teach Section -->
+    <section id="subjects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Academic Focus Areas" data-bn="একাডেমিক ফোকাস এরিয়া">Academic Focus Areas</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="focus-intro">
+                <p data-en="I specialize in delivering comprehensive education across key academic disciplines, with a focus on building strong foundations and advanced applications" 
+                   data-bn="আমি বিভিন্ন একাডেমিক বিষয়ে বিস্তৃত ও সংগঠিত শিক্ষা প্রদান করি, যেখানে মৌলিক ধারণা গঠনের পাশাপাশি উন্নত প্রয়োগের ওপর বিশেষ গুরুত্ব দেওয়া হয়।">
+                    I specialize in delivering comprehensive education across key academic disciplines, with a focus on building strong foundations and advanced applications
+                </p>
+            </div>
+            
+            <div class="focus-grid">
+                <!-- First Row: Chemistry, Biology, Physics -->
+                <!-- Chemistry Card -->
+                <div class="focus-card">
+                    <div class="focus-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                    <h3 data-en="Chemistry" data-bn="রসায়ন">Chemistry</h3>
+                    <p data-en="Specialized instruction in chemical principles, laboratory techniques, and molecular structures for junior and secondary level students" data-bn="জুনিয়র ও মাধ্যমিক স্তরের শিক্ষার্থীদের জন্য রাসায়নিক নীতিমালা, ল্যাবরেটরি কৌশল ও অণুর গঠন বিষয়ে বিশেষ পাঠদান।">Specialized instruction in chemical principles, laboratory techniques, and molecular structures for junior and secondary level students</p>
+                    <div class="focus-details">
+                        <div class="focus-levels">
+                            <span class="level-tag">Secondary Level</span>
+                            <span class="level-tag">Junior Level</span>
+                            </div>
+                            </div>
+                        </div>
+                        
+                <!-- Biology Card -->
+                <div class="focus-card">
+                    <div class="focus-icon">
+                        <i class="fas fa-dna"></i>
+                                </div>
+                    <h3 data-en="Biology" data-bn="জীববিজ্ঞান">Biology</h3>
+                    <p data-en="Comprehensive education in life sciences, cellular biology, and ecological systems with practical experiments and observations" data-bn="জীববিজ্ঞান, কোষবিদ্যা ও পরিবেশগত ব্যবস্থা নিয়ে বাস্তবভিত্তিক পরীক্ষা ও পর্যবেক্ষণের মাধ্যমে সমন্বিত শিক্ষা।">Comprehensive education in life sciences, cellular biology, and ecological systems with practical experiments and observations</p>
+                    <div class="focus-details">
+                        <div class="focus-levels">
+                            <span class="level-tag">Secondary Level</span>
+                            <span class="level-tag">Junior Level</span>
+                            </div>  
+                            </div>
+                        </div>
+                        
+                <!-- Physics Card -->
+                <div class="focus-card">
+                    <div class="focus-icon">
+                        <i class="fas fa-atom"></i>
+                                </div>
+                    <h3 data-en="Physics" data-bn="পদার্থবিজ্ঞান">Physics</h3>
+                    <p data-en="Structured learning of physical laws, mechanics, electricity, and modern physics with practical applications and problem-solving" data-bn="ভৌত সূত্র, গতি, বিদ্যুৎ ও আধুনিক পদার্থবিজ্ঞানের উপর ভিত্তি করে প্রয়োগমূলক শেখা ও সমস্যা সমাধানের কৌশল।">Structured learning of physical laws, mechanics, electricity, and modern physics with practical applications and problem-solving</p>
+                    <div class="focus-details">
+                        <div class="focus-levels">
+                            <span class="level-tag">Secondary Level</span>
+                            <span class="level-tag">Junior Level</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <!-- Second Row: English, General Math, ICT -->
+                <!-- English Card -->
+                <div class="focus-card">
+                    <div class="focus-icon">
+                        <i class="fas fa-language"></i>
+                                </div>
+                    <h3 data-en="English" data-bn="ইংরেজি">English</h3>
+                    <p data-en="Comprehensive language training focused on reading, writing, speaking, and listening skills, aligned with national curriculum standards" data-bn="জাতীয় পাঠ্যক্রমের সাথে সামঞ্জস্যপূর্ণভাবে পড়া, লেখা, বলা ও শোনার দক্ষতার উপর গুরুত্ব দিয়ে সমন্বিত ভাষা শিক্ষা।">Comprehensive language training focused on reading, writing, speaking, and listening skills, aligned with national curriculum standards</p>
+                    <div class="focus-details">
+                        <div class="focus-levels">
+                            <span class="level-tag">All Levels</span>
+                                </div>
+                            </div>
+                        </div>
+
+                <!-- Mathematics Card -->
+                <div class="focus-card">
+                    <div class="focus-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                                </div>
+                                <h3 data-en="General Mathematics" data-bn="সাধারণ গণিত">General Mathematics</h3>
+                    <p data-en="Structured mathematics education that builds computational skills and problem-solving abilities from fundamental to advanced concepts" data-bn="প্রাথমিক থেকে উচ্চতর স্তর পর্যন্ত গণনার দক্ষতা ও সমস্যা সমাধানের উপর ভিত্তি করে সংগঠিত গণিত শিক্ষা।">Structured mathematics education that builds computational skills and problem-solving abilities from fundamental to advanced concepts</p>
+                    <div class="focus-details">
+                        <div class="focus-levels">
+                            <span class="level-tag">Primary Level</span>
+                            <span class="level-tag">Junior Level</span>
+                            </div>
+                            </div>
+                        </div>
+                        
+                <!-- ICT Card -->
+                <div class="focus-card">
+                    <div class="focus-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                    <h3 data-en="ICT & Computer Studies" data-bn="আইসিটি ও কম্পিউটার শিক্ষা">ICT & Computer Studies</h3>
+                    <p data-en="Technology education focused on digital literacy, basic programming concepts, and practical computer applications" data-bn="ডিজিটাল সাক্ষরতা, প্রাথমিক প্রোগ্রামিং ধারণা ও ব্যবহারিক কম্পিউটার অ্যাপ্লিকেশন ভিত্তিক প্রযুক্তি শিক্ষা।">Technology education focused on digital literacy, basic programming concepts, and practical computer applications</p>
+                    <div class="focus-details">
+                        <div class="focus-levels">
+                            <span class="level-tag">Junior Level</span>
+                            <span class="level-tag">Secondary Level</span>
+                            </div>
+                        
+                                    </div>
+                                </div>
+                            </div>
+            
+            <div class="teaching-approach">
+                <h3 data-en="My Teaching Approach" data-bn="আমার পাঠদানের পদ্ধতি">My Teaching Approach</h3>
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4 data-en="Conceptual Understanding" data-bn="ধারণাগত বোঝাপড়া">Conceptual Understanding</h4>
+                        <p data-en="Building deep comprehension of core principles rather than rote memorization" data-bn="রটনের পরিবর্তে মূল ধারণার গভীর বোঝাপড়া তৈরি করা।">Building deep comprehension of core principles rather than rote memorization</p>
+                    </div>
+                    
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <i class="fas fa-tasks"></i>
+                                </div>
+                        <h4 data-en="Structured Practice" data-bn="কাঠামোবদ্ধ অনুশীলন">Structured Practice</h4>
+                        <p data-en="Systematic skill development through targeted exercises and application" data-bn="লক্ষ্যভিত্তিক অনুশীলনের মাধ্যমে দক্ষতা উন্নয়ন।">Systematic skill development through targeted exercises and application</p>
+                                </div>
+                    
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <i class="fas fa-users"></i>
+                                </div>
+                        <h4 data-en="Personalized Learning" data-bn="ব্যক্তিগতকৃত শেখা">Personalized Learning</h4>
+                        <p data-en="Adapting teaching methods to match each student's unique learning style" data-bn="প্রত্যেক শিক্ষার্থীর শেখার ধরণ অনুযায়ী পাঠদান পদ্ধতি নির্ধারণ।">Adapting teaching methods to match each student's unique learning style</p>
+            </div>
+            
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <i class="fas fa-chart-line"></i>
+                    </div>
+                        <h4 data-en="Progress Assessment" data-bn="অগ্রগতি মূল্যায়ন">Progress Assessment</h4>
+                        <p data-en="Regular evaluation with constructive feedback to track improvement" data-bn="নিয়মিত মূল্যায়নের মাধ্যমে গঠনমূলক পর্যালোচনা ও উন্নয়নের দিকনির্দেশনা প্রদান।">Regular evaluation with constructive feedback to track improvement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="About Me" data-bn="আমার সম্পর্কে">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="about-wrapper">
+                <div class="about-image-container">
+                    <div class="image-frame">
+                        <img src="img/Faria.png" alt="Farzana Akter Faria - Chemistry Teacher">
+                </div>
+                    <div class="experience-indicator">
+                        <div class="exp-number">4+</div>
+                        <div class="exp-text" data-en="Years Experience" data-bn="বছরের অভিজ্ঞতা">Years Experience</div>
+                    </div>
+                    <div class="decorative-element element-1"><i class="fas fa-flask"></i></div>
+                    <div class="decorative-element element-2"><i class="fas fa-atom"></i></div>
+                    <div class="decorative-element element-3"><i class="fas fa-microscope"></i></div>
+                </div>
+                
+                <div class="about-content-container">
+                    <div class="about-top-bar">
+                        <div class="professional-badge" data-en="Professional Educator" data-bn="পেশাদার শিক্ষিকা">Professional Educator</div>
+                        <div class="specialty-badge" data-en="Chemistry & Science" data-bn="রসায়ন ও বিজ্ঞান বিষয়ক">Chemistry & Science</div>
+                    </div>
+                    
+                    <h3 class="about-greeting" data-en="Hello, I'm Farzana" data-bn="হ্যালো, আমি ফারজানা">Hello, I'm Farzana</h3>
+                    
+                    <p class="about-intro" data-en="A passionate Chemistry & Science educator with a mission to make learning engaging, accessible, and enjoyable for all students." data-bn="আমি একজন উত্সাহী রসায়ন ও বিজ্ঞান শিক্ষিকা — আমার লক্ষ্য হলো প্রতিটি শিক্ষার্থীর জন্য শিখন প্রক্রিয়াকে আকর্ষণীয়, সহজবোধ্য ও উপভোগ্য করে তোলা।">A passionate Chemistry & Science educator with a mission to make learning engaging, accessible, and enjoyable for all students.</p>
+                    
+                    <p class="about-description" data-en="With a Bachelor's degree in Chemistry from National University and extensive teaching experience, I specialize in transforming complex scientific concepts into clear, understandable lessons. I believe education should spark curiosity and build confidence while developing critical thinking skills." 
+                       data-bn="জাতীয় বিশ্ববিদ্যালয় থেকে রসায়নে স্নাতক ডিগ্রি অর্জনের পাশাপাশি দীর্ঘদিনের পাঠদানের অভিজ্ঞতা রয়েছে আমার। আমি জটিল বৈজ্ঞানিক বিষয়বস্তুকে সরল ও বোধগম্য পাঠে রূপান্তর করতে পারি, যাতে শিক্ষার্থীরা আত্মবিশ্বাস গড়ে তুলতে পারে এবং জ্ঞানের প্রতি আগ্রহী হয়।
+
+আমি বিশ্বাস করি, শিক্ষা এমন একটি মাধ্যম যা কৌতূহল জাগিয়ে তোলে, আত্মবিশ্বাস তৈরি করে এবং শিক্ষার্থীদের সমালোচনামূলক চিন্তাভাবনার ক্ষমতা গড়ে তুলতে সহায়তা করে।">
+                        With a Bachelor's degree in Chemistry from National University and extensive teaching experience, I specialize in transforming complex scientific concepts into clear, understandable lessons. I believe education should spark curiosity and build confidence while developing critical thinking skills.
+                    </p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                                                            <div class="stat-number">60+</div>
+                                <div class="stat-label" data-en="Students Mentored" data-bn="পরামর্শপ্রাপ্ত শিক্ষার্থী">Students Mentored</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">99%</div>
+                            <div class="stat-label" data-en="Success Rate" data-bn="সাফল্যের হার">Success Rate</div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-buttons">
+                        <a href="#contact" class="about-cta btn primary-btn" data-en="Get in Touch" data-bn="যোগাযোগ করুন">Get in Touch</a>
+                        <a href="https://drive.google.com/uc?export=download&id=12VBwQR7vSVT4Ic6ruiCWsBwWDB_gvaOo" target="_blank" rel="noopener noreferrer" class="about-cta btn outline-btn download-btn" data-en="Download CV" data-bn="সিভি ডাউনলোড করুন"><i class="fas fa-download"></i> Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Education" data-bn="শিক্ষা">Education</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="education-intro">
+                <p data-en="My academic journey has equipped me with the knowledge and expertise necessary to provide exceptional science education." data-bn="আমার একাডেমিক যাত্রা আমাকে এমন জ্ঞান ও দক্ষতা দিয়েছে, যা একজন মানসম্পন্ন বিজ্ঞান শিক্ষিকা হিসেবে শিক্ষার্থীদের জন্য কার্যকর ও মানসম্পন্ন শিক্ষা প্রদান নিশ্চিত করতে সহায়ক।">
+                    My academic journey has equipped me with the knowledge and expertise necessary to provide exceptional science education.
+                </p>
+                    </div>
+            
+            <div class="edu-timeline-wrapper">
+                <div class="edu-timeline-track">
+                    <div class="track-line"></div>
+                    <div class="track-start"></div>
+                    <div class="track-end"></div>
+                    </div>
+                    
+                <div class="edu-timeline">
+                    <!-- BSc in Chemistry -->
+                    <div class="edu-milestone">
+                        <div class="milestone-connector">
+                            <div class="connector-dot">
+                                <div class="dot-pulse"></div>
+                    </div>
+                            <div class="connector-line"></div>
+                </div>
+                        <div class="milestone-content">
+                            <div class="milestone-header">
+                                <div class="milestone-date">2024</div>
+                                <div class="milestone-badge" data-en="Bachelor Degree" data-bn="স্নাতক ডিগ্রি">Bachelor Degree</div>
+                            </div>
+                            <div class="milestone-card">
+                                <span class="card-icon"><i class="fas fa-university"></i></span>
+                                <h3 class="milestone-title" data-en="BSc in Chemistry" data-bn="রসায়নে বিএসসি (BSc in Chemistry)">BSc in Chemistry</h3>
+                                
+                                <div class="milestone-school">
+                                    <h4 data-en="National University, Bangladesh" data-bn="জাতীয় বিশ্ববিদ্যালয়, বাংলাদেশ">National University, Bangladesh</h4>
+                                    <p class="school-location" data-en="Gazipur, Bangladesh" data-bn="গাজীপুর, বাংলাদেশ">Gazipur, Bangladesh</p>
+                        </div>
+                        
+                                <div class="milestone-stats">
+                                    <div class="stat-item">
+                                        <div class="stat-icon"><i class="fas fa-award"></i></div>
+                                        <div class="stat-info">
+                                            <span class="stat-label" data-en="CGPA" data-bn="সিজিপিএ">CGPA</span>
+                                            <strong class="stat-value">3.27/4.0</strong>
+                                </div>
+                            </div>
+                                    
+                        </div>
+                        
+                                <div class="milestone-highlights">
+                                    <div class="highlights-header">
+                                        <span data-en="Highlights" data-bn="হাইলাইটস">Highlights</span>
+                            <button class="highlights-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                                    </div>
+                        </div>
+                        
+                                <div class="milestone-decoration">
+                                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                                        <path d="M20,20 Q40,5 60,20 T90,30" stroke="var(--primary-color)" stroke-width="1" stroke-dasharray="4 3" opacity="0.3" />
+                                        <path d="M10,50 Q30,30 50,50 T90,50" stroke="var(--primary-color)" stroke-width="1" stroke-dasharray="4 3" opacity="0.3" />
+                                        <circle cx="30" cy="20" r="5" fill="var(--primary-color)" fill-opacity="0.2" />
+                                        <circle cx="70" cy="30" r="8" fill="var(--primary-color)" fill-opacity="0.2" />
+                                        <circle cx="20" cy="50" r="4" fill="var(--primary-color)" fill-opacity="0.2" />
+                                        <circle cx="80" cy="50" r="6" fill="var(--primary-color)" fill-opacity="0.2" />
+                            </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HSC -->
+                    <div class="edu-milestone">
+                        <div class="milestone-connector">
+                            <div class="connector-dot">
+                                <div class="dot-pulse"></div>
+                        </div>
+                            <div class="connector-line"></div>
+                    </div>
+                        <div class="milestone-content">
+                            <div class="milestone-header">
+                                <div class="milestone-date">2018</div>
+                                <div class="milestone-badge" data-en="Higher Secondary" data-bn="উচ্চ মাধ্যমিক">Higher Secondary</div>
+                    </div>
+                            <div class="milestone-card">
+                                <span class="card-icon"><i class="fas fa-landmark"></i></span>
+                                <h3 class="milestone-title" data-en="HSC (Science Group)" data-bn="উচ্চ মাধ্যমিক (HSC)">HSC (Science Group)</h3>
+                                
+                                <div class="milestone-school">
+                                    <h4 data-en="Noakhali Government Womens College" data-bn="নোয়াখালী গভ. উইমেন্স কলেজ">Noakhali Government Womens College</h4>
+                                    <p class="school-location" data-en="Noakhali, Bangladesh" data-bn="নোয়াখালী, বাংলাদেশ">Noakhali, Bangladesh</p>
+                        </div>
+                        
+                                <div class="milestone-stats">
+                                    <div class="stat-item">
+                                        <div class="stat-icon"><i class="fas fa-star"></i></div>
+                                        <div class="stat-info">
+                                            <span class="stat-label" data-en="GPA" data-bn="জিপিএ">GPA</span>
+                                            <strong class="stat-value">4.33/5.0</strong>
+                            </div>
+                            </div>
+                                    
+                        </div>
+                        
+                                <div class="milestone-decoration">
+                                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                                        <path d="M30,10 Q50,30 70,10" stroke="var(--secondary-color)" stroke-width="1" stroke-dasharray="4 3" opacity="0.3" />
+                                        <path d="M10,40 Q30,60 50,40 T90,40" stroke="var(--secondary-color)" stroke-width="1" stroke-dasharray="4 3" opacity="0.3" />
+                                        <circle cx="50" cy="10" r="6" fill="var(--secondary-color)" fill-opacity="0.2" />
+                                        <circle cx="20" cy="40" r="5" fill="var(--secondary-color)" fill-opacity="0.2" />
+                                        <circle cx="70" cy="40" r="8" fill="var(--secondary-color)" fill-opacity="0.2" />
+                            </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SSC -->
+                    <div class="edu-milestone">
+                        <div class="milestone-connector">
+                            <div class="connector-dot">
+                                <div class="dot-pulse"></div>
+                        </div>
+                            <div class="connector-line"></div>
+                    </div>
+                        <div class="milestone-content">
+                            <div class="milestone-header">
+                                <div class="milestone-date">2016</div>
+                                <div class="milestone-badge" data-en="Secondary" data-bn="মাধ্যমিক">Secondary</div>
+                    </div>
+                            <div class="milestone-card">
+                                <span class="card-icon"><i class="fas fa-school"></i></span>
+                                <h3 class="milestone-title" data-en="SSC (Science Group)" data-bn="মাধ্যমিক (SSC)">SSC (Science Group)</h3>
+                                
+                                <div class="milestone-school">
+                                    <h4 data-en="Chandpur Model High School" data-bn="চাঁদপুর মডেল হাই স্কুল">Chandpur Model High School</h4>
+                                    <p class="school-location" data-en="Senbag, Noakhali, Bangladesh" data-bn="সেনবাগ, নোয়াখালী, বাংলাদেশ">Senbag, Noakhali, Bangladesh</p>
+                        </div>
+                        
+                                <div class="milestone-stats">
+                                    <div class="stat-item">
+                                        <div class="stat-icon"><i class="fas fa-star"></i></div>
+                                        <div class="stat-info">
+                                            <span class="stat-label" data-en="GPA" data-bn="জিপিএ">GPA</span>
+                                            <strong class="stat-value">4.67/5.0</strong>
+                    </div>
+                    </div>
+                                    
+                        </div>
+                        
+                                <div class="milestone-decoration">
+                                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                                        <path d="M20,20 Q50,10 80,20" stroke="var(--accent-color)" stroke-width="1" stroke-dasharray="4 3" opacity="0.3" />
+                                        <path d="M10,50 Q30,40 50,50 T90,40" stroke="var(--accent-color)" stroke-width="1" stroke-dasharray="4 3" opacity="0.3" />
+                                        <circle cx="35" cy="15" r="6" fill="var(--accent-color)" fill-opacity="0.2" />
+                                        <circle cx="65" cy="20" r="7" fill="var(--accent-color)" fill-opacity="0.2" />
+                                        <circle cx="25" cy="45" r="4" fill="var(--accent-color)" fill-opacity="0.2" />
+                                        <circle cx="75" cy="40" r="5" fill="var(--accent-color)" fill-opacity="0.2" />
+                            </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Teaching Experience" data-bn="শিক্ষাদান অভিজ্ঞতা">Teaching Experience</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="experience-intro">
+                <p data-en="Building a career dedicated to education excellence and student success through engaging teaching methods and personalized approaches." data-bn="আমি শিক্ষায় উৎকর্ষতা ও শিক্ষার্থীদের সাফল্যের জন্য প্রতিশ্রুতিবদ্ধ একটি পেশাগত জীবন গড়ে তুলেছি, যেখানে পাঠদান পদ্ধতি সর্বদা আকর্ষণীয়, ব্যক্তিকেন্দ্রিক এবং ফলপ্রসূ।">
+                    Building a career dedicated to education excellence and student success through engaging teaching methods and personalized approaches.
+                </p>
+            </div>
+            
+            <div class="experience-cards">
+                <!-- School Teaching -->
+                <div class="exp-card">
+                    <div class="exp-card-header">
+                        <div class="exp-badge" data-en="2025 – Present" data-bn="২০২৫ – বর্তমান">2025 – Present</div>
+                        <div class="exp-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        </div>
+                    <div class="exp-card-body">
+                        <h3 class="exp-title" data-en="Chemistry & Science Teacher" data-bn="রসায়ন ও বিজ্ঞান শিক্ষিকা">Chemistry & Science Teacher</h3>
+                        <div class="exp-company">
+                            <span data-en="New Castle International School" data-bn="নিউ ক্যাসেল ইন্টারন্যাশনাল স্কুল">New Castle International School</span>
+                        </div>
+                        <div class="exp-tags">
+                            <span class="exp-tag" data-en="Formal Teaching" data-bn="প্রাতিষ্ঠানিক শিক্ষা">Formal Teaching</span>
+                            <span class="exp-tag" data-en="School" data-bn="বিদ্যালয় পর্যায়">School</span>
+                            </div>
+                    </div>
+                    <div class="exp-card-footer">
+                        <h4 class="exp-subtitle" data-en="Key Responsibilities" data-bn="মূল দায়িত্বসমূহ">Key Responsibilities</h4>
+                        <ul class="exp-list">
+                                    <li data-en="Teaching high school science and chemistry classes" data-bn="মাধ্যমিক পর্যায়ে রসায়ন ও বিজ্ঞান বিষয়ের পাঠদান">Teaching high school science and chemistry classes</li>
+                                    <li data-en="Creating engaging lesson plans and practical demonstrations" data-bn="আকর্ষণীয় লেসন প্ল্যান ও ব্যবহারিক উপস্থাপন তৈরি">Creating engaging lesson plans and practical demonstrations</li>
+                                    <li data-en="Conducting regular assessments and providing feedback" data-bn="নিয়মিত মূল্যায়ন ও গঠনমূলক প্রতিক্রিয়া প্রদান">Conducting regular assessments and providing feedback</li>
+                                    <li data-en="Participating in curriculum development" data-bn="পাঠ্যক্রম উন্নয়ন কার্যক্রমে অংশগ্রহণ">Participating in curriculum development</li>
+                        </ul>
+                    </div>
+                </div>
+                        
+                <!-- Private Tutoring -->
+                <div class="exp-card">
+                    <div class="exp-card-header">
+                        <div class="exp-badge" data-en="2021 – Present" data-bn="২০২১ – বর্তমান">2021 – Present</div>
+                        <div class="exp-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        </div>
+                    <div class="exp-card-body">
+                        <h3 class="exp-title" data-en="Private Tutor" data-bn="ব্যক্তিগত শিক্ষকতা">Private Tutor</h3>
+                        <div class="exp-company">
+                            <span data-en="Independent Practice" data-bn="স্বাধীনভাবে শিক্ষা প্রদান">Independent Practice</span>
+                            </div>
+                        <div class="exp-tags">
+                            <span class="exp-tag" data-en="Mentoring" data-bn="পরামর্শ">Mentoring</span>
+                            <span class="exp-tag" data-en="Private" data-bn="প্রাইভেট সাপোর্ট">Private</span>
+                            </div>
+                        <div class="exp-metrics">
+                            <div class="metric">
+                                <div class="metric-value">60+</div>
+                                <div class="metric-label" data-en="Students" data-bn="শিক্ষার্থী">Students</div>
+                        </div>
+                            <div class="metric">
+                                <div class="metric-value">99%</div>
+                                <div class="metric-label" data-en="Success Rate" data-bn="সাফল্যের হার">Success Rate</div>
+                        </div>
+                            </div>
+                    </div>
+                    <div class="exp-card-footer">
+                        <h4 class="exp-subtitle" data-en="Key Responsibilities" data-bn="মূল দায়িত্বসমূহ">Key Responsibilities</h4>
+                        <ul class="exp-list">
+                            <li data-en="Tutoring Chemistry and General Science to school/college students" data-bn="স্কুল ও কলেজ শিক্ষার্থীদের রসায়ন ও সাধারণ বিজ্ঞান বিষয়ে পড়ানো">Tutoring Chemistry and General Science to school/college students</li>
+                                    <li data-en="Designing personalized study plans based on individual learning needs" data-bn="শিক্ষার্থীর শেখার ধরন অনুযায়ী ব্যক্তিকৃত স্টাডি প্ল্যান তৈরি">Designing personalized study plans based on individual learning needs</li>
+                            <li data-en="Explaining scientific concepts with real-life examples" data-bn="বাস্তব উদাহরণের মাধ্যমে বৈজ্ঞানিক ধারণা ব্যাখ্যা">Explaining scientific concepts with real-life examples</li>
+                                    <li data-en="Preparing students for exams and practical demonstrations" data-bn="পরীক্ষার প্রস্তুতি ও ব্যবহারিক ক্লাসের সহায়তা প্রদান">Preparing students for exams and practical demonstrations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Skills & Expertise" data-bn="দক্ষতা ও বিশেষজ্ঞতা">Skills & Expertise</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="skills-new-intro">
+                <p data-en="My diverse skillset empowers me to deliver engaging, effective educational experiences across scientific disciplines and teaching environments." 
+                   data-bn="আমার বৈচিত্র্যময় দক্ষতা বিজ্ঞান শাখা এবং শিক্ষা পরিবেশে আকর্ষক, কার্যকর শিক্ষামূলক অভিজ্ঞতা প্রদান করতে আমাকে সক্ষম করে।">
+                    My diverse skillset empowers me to deliver engaging, effective educational experiences across scientific disciplines and teaching environments.
+                </p>
+            </div>
+            
+            <div class="skills-new-categories">
+                <!-- Teaching Skills Category -->
+                <div class="skills-new-category">
+                    <div class="skills-new-header">
+                        <div class="skills-new-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3 class="skills-new-title" data-en="Teaching Skills" data-bn="শিক্ষাদান দক্ষতা">Teaching Skills</h3>
+                    </div>
+                    
+                    <ul class="skills-new-list">
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-tasks"></i>
+                                <span data-en="Lesson Planning" data-bn="পাঠ পরিকল্পনা">Lesson Planning</span>
+                        </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 85%"></div>
+                            </div>
+                                <div class="skill-new-percent">85%</div>
+                        </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-users"></i>
+                                <span data-en="Classroom Management" data-bn="শ্রেণীকক্ষ ব্যবস্থাপনা">Classroom Management</span>
+                        </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 80%"></div>
+                        </div>
+                                <div class="skill-new-percent">80%</div>
+                    </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-chalkboard"></i>
+                                <span data-en="Student Engagement" data-bn="শিক্ষার্থী সম্পৃক্ততা">Student Engagement</span>
+                </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 95%"></div>
+                            </div>
+                                <div class="skill-new-percent">95%</div>
+                        </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-book-open"></i>
+                                <span data-en="Curriculum Design" data-bn="পাঠ্যক্রম ডিজাইন">Curriculum Design</span>
+                                </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 88%"></div>
+                            </div>
+                                <div class="skill-new-percent">88%</div>
+                        </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-clipboard-check"></i>
+                                <span data-en="Assessment Design" data-bn="মূল্যায়ন ডিজাইন">Assessment Design</span>
+                                </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 92%"></div>
+                            </div>
+                                <div class="skill-new-percent">92%</div>
+                        </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="skills-new-category-bg">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                </div>
+                
+                <!-- Scientific Skills Category -->
+                <div class="skills-new-category">
+                    <div class="skills-new-header">
+                        <div class="skills-new-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="skills-new-title" data-en="Scientific Skills" data-bn="বৈজ্ঞানিক দক্ষতা">Scientific Skills</h3>
+                    </div>
+                    
+                    <ul class="skills-new-list">
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-microscope"></i>
+                                <span data-en="Lab Techniques" data-bn="ল্যাব কৌশল">Lab Techniques</span>
+                        </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 90%"></div>
+                            </div>
+                                <div class="skill-new-percent">90%</div>
+                        </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-vial"></i>
+                                <span data-en="Chemical Analysis" data-bn="রাসায়নিক বিশ্লেষণ">Chemical Analysis</span>
+                        </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 82%"></div>
+                        </div>
+                                <div class="skill-new-percent">82%</div>
+                        </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-atom"></i>
+                                <span data-en="Organic Chemistry" data-bn="জৈব রসায়ন">Organic Chemistry</span>
+                        </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 85%"></div>
+                        </div>
+                                <div class="skill-new-percent">85%</div>
+                    </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-wave-square"></i>
+                                <span data-en="Spectroscopy" data-bn="স্পেকট্রোস্কোপি">Spectroscopy</span>
+                </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 70%"></div>
+                            </div>
+                                <div class="skill-new-percent">70%</div>
+                        </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-flask"></i>
+                                <span data-en="Experimentation" data-bn="পরীক্ষা-নিরীক্ষা">Experimentation</span>
+                                </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 75%"></div>
+                            </div>
+                                <div class="skill-new-percent">75%</div>
+                        </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="skills-new-category-bg">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                </div>
+                
+                <!-- Soft Skills Category -->
+                <div class="skills-new-category">
+                    <div class="skills-new-header">
+                        <div class="skills-new-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="skills-new-title" data-en="Soft Skills" data-bn="সফট স্কিলস">Soft Skills</h3>
+                    </div>
+                    
+                    <ul class="skills-new-list">
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-comments"></i>
+                                <span data-en="Communication" data-bn="যোগাযোগ">Communication</span>
+                        </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 95%"></div>
+                            </div>
+                                <div class="skill-new-percent">95%</div>
+                        </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-puzzle-piece"></i>
+                                <span data-en="Problem-solving" data-bn="সমস্যা সমাধান">Problem-solving</span>
+                        </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 90%"></div>
+                            </div>
+                                <div class="skill-new-percent">90%</div>
+                        </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-search"></i>
+                                <span data-en="Attention to Detail" data-bn="বিশদে মনোযোগ">Attention to Detail</span>
+                        </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 85%"></div>
+                            </div>
+                                <div class="skill-new-percent">85%</div>
+                        </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-users-cog"></i>
+                                <span data-en="Collaboration" data-bn="সহযোগিতা">Collaboration</span>
+                                </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 88%"></div>
+                            </div>
+                                <div class="skill-new-percent">88%</div>
+                        </div>
+                        </li>
+                        
+                        <li class="skills-new-item">
+                            <div class="skill-new-name">
+                                <i class="fas fa-clock"></i>
+                                <span data-en="Time Management" data-bn="সময় ব্যবস্থাপনা">Time Management</span>
+                                </div>
+                            <div class="skill-new-progress">
+                                <div class="skill-new-bar">
+                                    <div class="skill-new-level" style="--level: 80%"></div>
+                            </div>
+                                <div class="skill-new-percent">80%</div>
+                        </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="skills-new-category-bg">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching Philosophy Section -->
+    <section id="philosophy" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Teaching Philosophy" data-bn="শিক্ষাদানের দর্শন">Teaching Philosophy</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="philosophy-content">
+                <div class="philosophy-image">
+                    <object data="img/teaching-philosophy.svg" type="image/svg+xml" class="philosophy-svg" alt="Farzana Akter Faria - Teaching Philosophy"></object>
+                </div>
+                <div class="philosophy-text">
+                    <div class="philosophy-item">
+                        <div class="philosophy-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="philosophy-detail">
+                            <h3 data-en="Hands-on Learning" data-bn="ব্যবহারিক শেখা">Hands-on Learning</h3>
+                            <p data-en="I believe that science is best learned through active experimentation. My classroom is a laboratory where students are encouraged to discover scientific principles through hands-on activities." 
+                               data-bn="আমি বিশ্বাস করি, বিজ্ঞান সবচেয়ে ভাল শেখা যায় ব্যবহারিক পরীক্ষার মাধ্যমে। আমার শ্রেণিকক্ষ একটি গবেষণাগার, যেখানে শিক্ষার্থীরা হাতে-কলমে কাজের মাধ্যমে বৈজ্ঞানিক নীতিমালা আবিষ্কার করতে উৎসাহিত হয়।">
+                                I believe that science is best learned through active experimentation. My classroom is a laboratory where students are encouraged to discover scientific principles through hands-on activities.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="philosophy-item">
+                        <div class="philosophy-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="philosophy-detail">
+                            <h3 data-en="Critical Thinking" data-bn="সমালোচনামূলক চিন্তা">Critical Thinking</h3>
+                            <p data-en="Science education should foster analytical minds. I challenge my students with problems that require them to think critically, evaluate evidence, and develop reasoned conclusions." 
+                               data-bn="বিজ্ঞান শিক্ষা হওয়া উচিত এমন একটি মাধ্যম যা বিশ্লেষণধর্মী চিন্তাভাবনা গড়ে তোলে। আমি শিক্ষার্থীদের এমন সমস্যা দিতে ভালোবাসি যেখানে তাদের প্রমাণ মূল্যায়ন করতে হয় এবং যুক্তিনির্ভর সিদ্ধান্ত নিতে হয়।">
+                                Science education should foster analytical minds. I challenge my students with problems that require them to think critically, evaluate evidence, and develop reasoned conclusions.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="philosophy-item">
+                        <div class="philosophy-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <div class="philosophy-detail">
+                            <h3 data-en="Real-World Connections" data-bn="বাস্তব জীবনের সংযোগ">Real-World Connections</h3>
+                            <p data-en="I strive to connect scientific concepts to everyday life. When students see how science explains the world around them, their interest and understanding grow naturally." 
+                               data-bn="আমি চেষ্টা করি প্রতিটি বৈজ্ঞানিক ধারণাকে বাস্তব জীবনের সঙ্গে সংযুক্ত করতে। যখন শিক্ষার্থীরা দেখে বিজ্ঞান কীভাবে চারপাশের জগতকে ব্যাখ্যা করে, তখন তাদের আগ্রহ ও বোঝাপড়া স্বাভাবিকভাবেই বেড়ে যায়।">
+                                I strive to connect scientific concepts to everyday life. When students see how science explains the world around them, their interest and understanding grow naturally.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Testimonials" data-bn="প্রশংসামূলক মতামত">Testimonials</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="testimonial-intro">
+                <p data-en="Discover what students, parents, and educators have to say about their experiences with my teaching methodology and impact." 
+                   data-bn="আমার পাঠদানের পদ্ধতি ও প্রভাব সম্পর্কে শিক্ষার্থী, অভিভাবক ও সহকর্মীরা কী বলছেন, তা জানুন।">
+                    Discover what students, parents, and educators have to say about their experiences with my teaching methodology and impact.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Student Testimonial -->
+                <div class="testimonial-item" data-id="1">
+                    <div class="testimonial-header">
+                        <div class="testimonial-category student">
+                            <span data-en="Student" data-bn="শিক্ষার্থী">Student</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <div class="testimonial-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="testimonial-text">
+                            <p data-en="Ms. Farzana makes complex chemistry concepts so easy to understand. Her demonstrations and visual aids have helped me improve my grades significantly." 
+                               data-bn="মিস ফারজানা জটিল রসায়ন বিষয়গুলো এত সহজভাবে বোঝান যে আমি খুব সহজেই বুঝতে পারি। তাঁর প্রদর্শনী ও ভিজ্যুয়াল উপস্থাপনাগুলি আমার ফলাফল অনেক উন্নত করতে সাহায্য করেছে।">
+                                Ms. Farzana makes complex chemistry concepts so easy to understand. Her demonstrations and visual aids have helped me improve my grades significantly.
+                            </p>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author-image">
+                            <img src="img/testimonials/student1.jpg" alt="Student testimonial">
+                        </div>
+                        <div class="testimonial-author">
+                            <h4 data-en="Tasnim Ahmed" data-bn="তাসনিম আহমেদ">Tasnim Ahmed</h4>
+                            <p data-en="Class 10 Student" data-bn="দশম শ্রেণির শিক্ষার্থী">Class 10 Student</p>
+                        </div>
+                    </div>
+                </div>
+                    
+                <!-- Parent Testimonial -->
+                <div class="testimonial-item" data-id="2">
+                    <div class="testimonial-header">
+                        <div class="testimonial-category parent">
+                            <span data-en="Parent" data-bn="অভিভাবক">Parent</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <div class="testimonial-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="testimonial-text">
+                            <p data-en="Farzana has a unique way of making science exciting. My daughter was struggling with chemistry, but now it's her favorite subject thanks to her teaching approach." 
+                               data-bn="ফারজানার পড়ানোর একটি অনন্য পদ্ধতি আছে যা বিজ্ঞানকে দারুণ আকর্ষণীয় করে তোলে। আমার মেয়ে আগে রসায়ন বিষয়ে দুর্বল ছিল, কিন্তু এখন সেটিই তার প্রিয় বিষয় — সবকিছুর কৃতিত্ব যায় তার শিক্ষাদানের কৌশলে।">
+                                Farzana has a unique way of making science exciting. My daughter was struggling with chemistry, but now it's her favorite subject thanks to her teaching approach.
+                            </p>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author-image">
+                            <img src="img/testimonials/parent1.jpg" alt="Parent testimonial">
+                        </div>
+                        <div class="testimonial-author">
+                            <h4 data-en="Nasreen Kabir" data-bn="নাসরিন কবির">Nasreen Kabir</h4>
+                            <p data-en="Parent" data-bn="অভিভাবক">Parent</p>
+                        </div>
+                    </div>
+                </div>
+                    
+                <!-- Colleague Testimonial -->
+                <div class="testimonial-item" data-id="3">
+                    <div class="testimonial-header">
+                        <div class="testimonial-category colleague">
+                            <span data-en="Colleague" data-bn="সহকর্মী">Colleague</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <div class="testimonial-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="testimonial-text">
+                            <p data-en="Working alongside Farzana has been inspiring. Her dedication to making science accessible and engaging for all students sets a high standard for our teaching team." 
+                               data-bn="ফারজানার সঙ্গে কাজ করা খুবই অনুপ্রেরণাদায়ক। তিনি বিজ্ঞানকে সকল শিক্ষার্থীর জন্য সহজ ও উপভোগ্য করে তোলার যে চেষ্টা করেন, তা আমাদের পুরো শিক্ষকমণ্ডলীর জন্য একটি মানদণ্ড তৈরি করে দিয়েছে।">
+                                Working alongside Farzana has been inspiring. Her dedication to making science accessible and engaging for all students sets a high standard for our teaching team.
+                            </p>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author-image">
+                            <img src="img/testimonials/colleague1.jpg" alt="Colleague testimonial">
+                        </div>
+                        <div class="testimonial-author">
+                            <h4 data-en="Dr. Mahmudul Hasan" data-bn="ড. মাহমুদুল হাসান">Dr. Mahmudul Hasan</h4>
+                            <p data-en="Science Department Head" data-bn="প্রধান, বিজ্ঞান বিভাগ">Science Department Head</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Educational Resources" data-bn="শিক্ষাসম্পদ">Educational Resources</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="resources-intro">
+                <p data-en="My educational resources section is currently under development. I'm preparing high-quality materials for chemistry and science students. Please check back soon!" 
+                   data-bn="আমার শিক্ষাসম্পদ বিভাগটি বর্তমানে উন্নয়নের অধীন। আমি রসায়ন ও বিজ্ঞান বিষয়ের শিক্ষার্থীদের জন্য উচ্চমানের পাঠ্যসামগ্রী প্রস্তুত করছি। অনুগ্রহ করে কিছুদিন পর আবার দেখে নিন!">
+                    My educational resources section is currently under development. I'm preparing high-quality materials for chemistry and science students. Please check back soon!
+                </p>
+            </div>
+            
+            <div class="coming-soon-container">
+                <div class="coming-soon-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h3 class="coming-soon-text" data-en="Coming Soon" data-bn="শীঘ্রই আসছে">Coming Soon</h3>
+                <p data-en="Exciting new learning resources are in development. Stay tuned for interactive study materials, lesson plans, and practice exercises." 
+                   data-bn="নতুন ও উত্তেজনাপূর্ণ শেখার উপকরণ প্রস্তুত করা হচ্ছে। ইন্টারঅ্যাকটিভ স্টাডি ম্যাটেরিয়াল, পাঠ পরিকল্পনা এবং অনুশীলনের সেটসহ আরও অনেক কিছু আপনার জন্য অপেক্ষা করছে।">
+                    Exciting new learning resources are in development. Stay tuned for interactive study materials, lesson plans, and practice exercises.
+                </p>
+                <div class="resource-tags">
+                    <span class="resource-tag"><i class="fas fa-book"></i> <span data-en="Study Guides" data-bn="স্টাডি গাইড">Study Guides</span></span>
+                    <span class="resource-tag"><i class="fas fa-atom"></i> <span data-en="Chemistry Labs" data-bn="রসায়ন ল্যাব">Chemistry Labs</span></span>
+                    <span class="resource-tag"><i class="fas fa-vial"></i> <span data-en="Experiments" data-bn="ব্যবহারিক পরীক্ষা">Experiments</span></span>
+                    <span class="resource-tag"><i class="fas fa-tasks"></i> <span data-en="Practice Sets" data-bn="অনুশীলন সেট">Practice Sets</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Contact Me" data-bn="যোগাযোগ করুন">Contact Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-detail">
+                            <h3 data-en="Phone" data-bn="ফোন">Phone</h3>
+                            <p>+8801881012859</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-detail">
+                            <h3 data-en="Email" data-bn="ইমেইল">Email</h3>
+                            <p>farzana.akter.fariaa@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-detail">
+                            <h3 data-en="Location" data-bn="অবস্থান">Location</h3>
+                            <p data-en="Sonir Akhra, Dhaka, Bangladesh" data-bn="সোনির আখড়া, ঢাকা, বাংলাদেশ">Sonir Akhra, Dhaka, Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" action="https://formspree.io/f/mwqgrpgg" method="POST">
+                        <input type="hidden" name="_replyto" value="farzana.akter.fariaa@gmail.com">
+                        <div class="form-group">
+                            <label for="name" data-en="Name" data-bn="নাম">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-en="Email" data-bn="ইমেইল">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-en="Message" data-bn="বার্তা">Message</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <div id="form-status" class="form-status"></div>
+                        <button type="submit" class="btn primary-btn" data-en="Send Message" data-bn="বার্তা পাঠান">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14611.656508979721!2d90.43389561452897!3d23.699004399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b9cc7d566d03%3A0x2472a49ac0504cd2!2sSonir%20Akhra%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1717008420026!5m2!1sen!2sbd" 
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" title="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <img src="img/logo-white.svg" alt="Faria Logo">
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/farzana.faria.672508" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/_farzana_fari__/" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-en="Copyright © 2025 Farzana Akter Faria" data-bn="কপিরাইট © ২০২৫ ফারজানা আক্তার ফারিয়া">Copyright © 2025 Farzana Akter Faria</p>
+                <span class="footer-separator">|</span>
+                <p data-en="Made with ❤️ by Rabius Sani" data-bn="ভালোবাসা দিয়ে তৈরি করেছেন ❤️ রাবিউস সানি">Made with ❤️ by Rabius Sani</p>
+                <!-- Footer back to top removed -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/theme-elements.js"></script>
+    <script src="js/background-animations.js"></script>
+    
+    <!-- Form submission script -->
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('form-status');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const formData = new FormData(contactForm);
+                const statusMessage = document.createElement('div');
+                statusMessage.classList.add('sending-message');
+                statusMessage.textContent = 'Sending message...';
+                formStatus.innerHTML = '';
+                formStatus.appendChild(statusMessage);
+                
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
+                    statusMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                    statusMessage.classList.remove('sending-message');
+                    statusMessage.classList.add('success-message');
+                    contactForm.reset();
+                })
+                .catch(error => {
+                    statusMessage.textContent = 'Oops! There was a problem sending your message. Please try again.';
+                    statusMessage.classList.remove('sending-message');
+                    statusMessage.classList.add('error-message');
+                    console.error('Error:', error);
+                });
+            });
+        }
+    </script>
+    
+    <!-- Simple Fix Script for Dark Mode Toggle and Back to Top Button -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Initializing fixes...');
+            
+            // Fix for Dark Mode Toggle
+            const themeToggle = document.getElementById('theme-mode-toggle');
+            
+            if (themeToggle) {
+                // Direct click handler for the toggle
+                themeToggle.addEventListener('click', function(e) {
+                    console.log('Theme toggle clicked directly!');
+                    const isDark = document.body.classList.contains('dark-mode');
+                    document.body.classList.toggle('dark-mode', !isDark);
+                    
+                    // Update icons manually
+                    const sunIcon = themeToggle.querySelector('.fa-sun');
+                    const moonIcon = themeToggle.querySelector('.fa-moon');
+                    
+                    if (sunIcon && moonIcon) {
+                        if (!isDark) { // switching to dark
+                            sunIcon.style.opacity = '1';
+                            sunIcon.style.transform = 'translate(-50%, -50%) scale(1)';
+                            moonIcon.style.opacity = '0';
+                            moonIcon.style.transform = 'translate(-50%, -50%) scale(0.5)';
+                        } else { // switching to light
+                            sunIcon.style.opacity = '0';
+                            sunIcon.style.transform = 'translate(-50%, -50%) scale(0.5)';
+                            moonIcon.style.opacity = '1';
+                            moonIcon.style.transform = 'translate(-50%, -50%) scale(1)';
+                        }
+                    }
+                    
+                    // Save to localStorage
+                    localStorage.setItem('darkMode', (!isDark).toString());
+                    
+                    // Prevent other handlers
+                    e.stopPropagation();
+                }, true);
+            }
+            
+            // Fix for Back to Top Button
+            const backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                console.log('Found back to top button, setting up event handlers');
+                
+                // Show/hide the button based on scroll position
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                });
+                
+                // Scroll to top when clicked
+                backToTop.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Trigger scroll check initially to set correct state
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                }
+            }
+        });
+    </script>
+  
+</body>
+</html> 

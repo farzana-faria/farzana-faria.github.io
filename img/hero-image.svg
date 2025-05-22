@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="500" viewBox="0 0 600 500">
+  <rect width="600" height="500" fill="#f5f5f5"/>
+  <text x="300" y="250" font-family="Arial" font-size="24" text-anchor="middle" fill="#666">Hero Image Placeholder</text>
+  <text x="300" y="280" font-family="Arial" font-size="16" text-anchor="middle" fill="#999">Replace with actual image</text>
+  <rect x="150" y="100" width="300" height="300" fill="none" stroke="#ccc" stroke-width="2" stroke-dasharray="5,5"/>
+  <circle cx="300" cy="250" r="120" fill="#6c63ff" opacity="0.1"/>
+</svg> 

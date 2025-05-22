@@ -1,0 +1,179 @@
+/* Dusty Rose & Sage Green Theme Colors */
+:root {
+  --primary-color: #D4A5A5;  /* Dusty Rose */
+  --primary-rgb: 212, 165, 165;  /* Dusty Rose RGB */
+  --secondary-color: #9BAF88; /* Sage Green */
+  --accent-color: #E9E0D1; /* Warm Beige */
+  --light-color: #F7F3F0; /* Soft Ivory */
+  --dark-color: #8A6F6F; /* Deep Burgundy */
+  --text-color: #3D3142; /* Deep Aubergine */
+  --text-light: #6D636E; /* Muted Mauve */
+  --bg-color: #F7F3F0; /* Soft Ivory */
+  --bg-light: #FDF8F5; /* Light Cream */
+  --bg-alternate: #EEE8E3; /* Slightly darker ivory for alternating sections */
+  --border-color: #E5DED5; /* Warm Beige */
+  --success-color: #A7C4A0; /* Light Sage */
+  --success-light: #EAF1E8; /* Light Mint */
+  --alert-color: #D98880; /* Soft Coral */
+}
+
+/* Dark Mode Colors */
+.dark-mode {
+  /* Base Colors */
+  --bg-color: #59464C; /* Deep Rose Brown */
+  --bg-light: #705A61; /* Lighter Deep Rose */
+  --bg-alternate: #4D3C42; /* Darker Rose Brown for alternating sections */
+  --text-color: #F0E6E0; /* Soft Cream */
+  --text-light: #DBD1CB; /* Warm Beige */
+  --border-color: #816C73; /* Medium Deep Rose */
+
+  /* Theme Colors in Dark Mode */
+  --primary-color: #E5B9B9; /* Lighter Dusty Rose */
+  --secondary-color: #B3C4A3; /* Lighter Sage */
+  --accent-color: #F0E6E0; /* Light Cream */
+  --success-color: #B3C4A3; /* Lighter Sage */
+  --success-light: #4D5747; /* Dark Sage */
+  --alert-color: #E5A29B; /* Lighter Coral */
+
+  /* Card and Section Colors */
+  --card-bg: #705A61; /* Lighter Deep Rose */
+  --card-border: #816C73; /* Medium Deep Rose */
+  --section-bg: #59464C; /* Deep Rose Brown */
+
+  /* Button Colors */
+  --btn-primary-bg: #E5B9B9;
+  --btn-primary-text: #59464C;
+  --btn-hover-bg: #D4A5A5;
+  --btn-hover-text: #4D3C42;
+
+  /* Navigation Colors */
+  --nav-bg: rgba(89, 70, 76, 0.95);
+  --nav-text: #F0E6E0;
+  --nav-hover: #E5B9B9;
+  --nav-active: #D4A5A5;
+
+  /* Form Colors */
+  --input-bg: #705A61;
+  --input-border: #816C73;
+  --input-focus: #E5B9B9;
+  --input-text: #F0E6E0;
+
+  /* Shadow */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --box-shadow: 0 4px 6px var(--shadow-color);
+  --hover-shadow: 0 8px 25px var(--shadow-color);
+}
+
+/* Override specific gradients */
+.curriculum-science-icon {
+  background: linear-gradient(135deg, #D4A5A5 0%, #C68F8F 100%);
+}
+
+.lang-icon {
+  background: linear-gradient(135deg, #9BAF88 0%, #788B63 100%);
+}
+
+.advanced-science-icon {
+  background: linear-gradient(135deg, #D4A5A5 0%, #C68F8F 100%);
+}
+
+.testimonial-badge.student {
+  background: linear-gradient(135deg, #D4A5A5, #C68F8F);
+}
+
+.teaching-methodology {
+  background: linear-gradient(to right, rgba(212, 165, 165, 0.05), rgba(155, 175, 136, 0.05));
+}
+
+.topic-tag {
+  background-color: rgba(212, 165, 165, 0.1);
+}
+
+.professional-badge {
+  box-shadow: 0 5px 15px rgba(212, 165, 165, 0.2);
+}
+
+.tag-badge:nth-child(2) {
+  background-color: rgba(155, 175, 136, 0.1);
+}
+
+/* Additional overrides for consistency */
+.nav-link:hover, .nav-link:focus, .nav-link.active {
+  background-color: rgba(212, 165, 165, 0.08);
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: rgba(212, 165, 165, 0.08);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  box-shadow: 0 0 0 3px rgba(212, 165, 165, 0.1);
+}
+
+.specialty-badge {
+  background-color: rgba(212, 165, 165, 0.1);
+  border: 1px solid rgba(212, 165, 165, 0.3);
+}
+
+.experience-year-badge {
+  background: linear-gradient(135deg, #D4A5A5 0%, #C68F8F 100%);
+}
+
+.level-tab.active {
+  background: rgba(212, 165, 165, 0.05);
+}
+
+.tab-icon {
+  background: rgba(212, 165, 165, 0.1);
+}
+
+/* Override hover colors */
+.about-cta.download-btn:hover {
+  background-color: rgba(212, 165, 165, 0.1);
+}
+
+.outline-btn:hover {
+  background: rgba(212, 165, 165, 0.1);
+}
+
+/* SVG Background in hero pattern */
+.hero-pattern {
+  background-image: radial-gradient(#D4A5A5 1px, transparent 1px),
+                    radial-gradient(#9BAF88 1px, transparent 1px);
+}
+
+/* Dark mode overrides for specific components */
+.dark-mode .nav-link:hover, 
+.dark-mode .nav-link:focus, 
+.dark-mode .nav-link.active {
+  background-color: rgba(229, 185, 185, 0.15);
+}
+
+.dark-mode .dropdown-item:hover, 
+.dark-mode .dropdown-item:focus {
+  background-color: rgba(229, 185, 185, 0.15);
+}
+
+.dark-mode .form-group input:focus,
+.dark-mode .form-group textarea:focus {
+  box-shadow: 0 0 0 3px rgba(229, 185, 185, 0.2);
+}
+
+.dark-mode .specialty-badge {
+  background-color: rgba(229, 185, 185, 0.15);
+  border: 1px solid rgba(229, 185, 185, 0.3);
+}
+
+.dark-mode .level-tab.active {
+  background: rgba(229, 185, 185, 0.15);
+}
+
+.dark-mode .tab-icon {
+  background: rgba(229, 185, 185, 0.15);
+}
+
+.dark-mode .hero-pattern {
+  background-image: radial-gradient(rgba(229, 185, 185, 0.3) 1px, transparent 1px),
+                    radial-gradient(rgba(179, 196, 163, 0.3) 1px, transparent 1px);
+} 

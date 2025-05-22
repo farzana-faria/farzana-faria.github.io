@@ -1,0 +1,105 @@
+:root {
+    /* Primary Colors */
+    --primary-color: #8A1538;
+    --primary-rgb: 138, 21, 56;
+    --secondary-color: #D4AF37;
+    --accent-color: #630D28;
+
+    /* Background Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9f3f5;
+    --bg-light: #ffffff;
+    --bg-dark: #1a1a1a;
+
+    /* Text Colors */
+    --text-color: #392225;
+    --text-light: #6d595d;
+    --text-dark: #1a1a1a;
+    --text-white: #ffffff;
+
+    /* Link Colors */
+    --link-color: #8A1538;
+    --link-hover: #630D28;
+
+    /* Border Colors */
+    --border-color: #f0dce2;
+    --border-light: #f5e7ea;
+    --border-dark: #d5b7bf;
+
+    /* Card and Section Colors */
+    --card-bg: #ffffff;
+    --card-border: #f0dce2;
+    --section-bg: #f9f3f5;
+
+    /* Button Colors */
+    --btn-primary-bg: #8A1538;
+    --btn-primary-text: #ffffff;
+    --btn-hover-bg: #630D28;
+    --btn-hover-text: #ffffff;
+
+    /* Navigation Colors */
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-text: #392225;
+    --nav-hover: #8A1538;
+    --nav-active: #630D28;
+
+    /* Form Colors */
+    --input-bg: #ffffff;
+    --input-border: #d5b7bf;
+    --input-focus: #8A1538;
+    --input-text: #392225;
+
+    /* Timeline Colors */
+    --timeline-line: #f0dce2;
+    --timeline-dot: #8A1538;
+    --timeline-date: #6d595d;
+
+    /* Shadow */
+    --shadow-color: rgba(138, 21, 56, 0.1);
+    --box-shadow: 0 4px 6px var(--shadow-color);
+    --hover-shadow: 0 10px 15px var(--shadow-color);
+}
+
+/* Dark Mode Colors */
+.dark-mode {
+    /* Base Colors */
+    --bg-color: #28171c;
+    --bg-light: #39232a;
+    --bg-alternate: #2e1d22;
+    --text-color: #f0e6e8;
+    --text-light: #d1bfc3;
+    --border-color: #4e2e37;
+
+    /* Theme Colors in Dark Mode */
+    --primary-color: #B52046;
+    --secondary-color: #F0C14B;
+    --accent-color: #8A1538;
+    
+    /* Card and Section Colors */
+    --card-bg: #39232a;
+    --card-border: #4e2e37;
+    --section-bg: #28171c;
+    
+    /* Button Colors */
+    --btn-primary-bg: #B52046;
+    --btn-primary-text: #ffffff;
+    --btn-hover-bg: #8A1538;
+    --btn-hover-text: #ffffff;
+    
+    /* Navigation Colors */
+    --nav-bg: rgba(40, 23, 28, 0.95);
+    --nav-text: #f0e6e8;
+    --nav-hover: #B52046;
+    --nav-active: #8A1538;
+    
+    /* Form Colors */
+    --input-bg: #39232a;
+    --input-border: #4e2e37;
+    --input-focus: #B52046;
+    --input-text: #f0e6e8;
+    
+    /* Shadow */
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --box-shadow: 0 4px 6px var(--shadow-color);
+    --hover-shadow: 0 8px 25px var(--shadow-color);
+} 
